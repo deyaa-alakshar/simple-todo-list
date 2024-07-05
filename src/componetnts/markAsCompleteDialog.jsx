@@ -1,17 +1,24 @@
-import React from "react";
+import { useContext } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { ToDoListContext } from "./ToDoList";
 
-const MarkAsCompleteDialog = (props) => {
+const MarkAsCompleteDialog = () => {
+  const { settings, handleClose, handleMarkAsComplete } =
+    useContext(ToDoListContext);
+  if (!settings.openMarkAsComplete) {
+    return null;
+  }
+
   return (
-    <React.Fragment>
+    <>
       <Dialog
-        open={props.open}
-        onClose={props.handleClose}
+        open={settings.openMarkAsComplete}
+        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -24,12 +31,12 @@ const MarkAsCompleteDialog = (props) => {
           </DialogContent>
         </div>
         <DialogActions>
-          <Button fullWidth onClick={props.handleClose} color="inherit">
+          <Button fullWidth onClick={handleClose} color="inherit">
             Cancel
           </Button>
           <Button
             fullWidth
-            onClick={props.handleMarkAsComplete}
+            onClick={handleMarkAsComplete}
             color="success"
             variant="contained"
             autoFocus
@@ -38,7 +45,7 @@ const MarkAsCompleteDialog = (props) => {
           </Button>
         </DialogActions>
       </Dialog>
-    </React.Fragment>
+    </>
   );
 };
 

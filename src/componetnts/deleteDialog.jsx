@@ -1,24 +1,29 @@
-import React from "react";
+import { useContext } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { ToDoListContext } from "./ToDoList";
 
-const DeleteDialog = (props) => {
+const DeleteDialog = () => {
+  const { settings, handleClose, handleDelete } = useContext(ToDoListContext);
+
+  if (!settings.openDelete) {
+    return;
+  }
+
   return (
-    <React.Fragment>
+    <>
       <Dialog
-        open={props.open}
-        onClose={props.handleClose}
+        open={settings.openDelete}
+        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <div className="text-center">
-          <DialogTitle id="alert-dialog-title">
-            Deleting the task
-          </DialogTitle>
+          <DialogTitle id="alert-dialog-title">Deleting the task</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
               Are you sure you want to delete the task
@@ -26,12 +31,12 @@ const DeleteDialog = (props) => {
           </DialogContent>
         </div>
         <DialogActions>
-          <Button fullWidth onClick={props.handleClose} color="inherit">
+          <Button fullWidth onClick={handleClose} color="inherit">
             Cancel
           </Button>
           <Button
             fullWidth
-            onClick={props.handleDelete}
+            onClick={handleDelete}
             color="error"
             variant="contained"
             autoFocus
@@ -40,7 +45,7 @@ const DeleteDialog = (props) => {
           </Button>
         </DialogActions>
       </Dialog>
-    </React.Fragment>
+    </>
   );
 };
 

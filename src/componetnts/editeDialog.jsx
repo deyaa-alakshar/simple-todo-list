@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -6,18 +6,25 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
+import { ToDoListContext } from "./ToDoList";
 
-const EditeDialog = (props) => {
+const EditeDialog = () => {
   const [titel, setTitle] = useState("");
+  const { settings, handleClose, handleEdit } = useContext(ToDoListContext);
 
   useEffect(() => {
-    setTitle(props.todo?.todo || "");
-  }, [props]);
+    setTitle(settings.selected?.todo || "");
+  }, [settings.selected]);
+
+  if (!settings.openEdite) {
+    return;
+  }
+
   return (
-    <React.Fragment>
+    <>
       <Dialog
-        open={props.open}
-        onClose={props.handleClose}
+        open={settings.openEdite}
+        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         maxWidth="md"
@@ -41,18 +48,18 @@ const EditeDialog = (props) => {
                 placeholder="Please write your todo title"
                 value={titel}
                 onChange={(e) => setTitle(e.target.value)}
-                sx={{width: 400}}
+                sx={{ width: 400 }}
               />
             </div>
           </DialogContent>
         </div>
         <DialogActions>
-          <Button fullWidth onClick={props.handleClose} color="inherit">
+          <Button fullWidth onClick={handleClose} color="inherit">
             Cancel
           </Button>
           <Button
             fullWidth
-            onClick={() => props.handleEdit(titel)}
+            onClick={() => handleEdit(titel)}
             color="warning"
             variant="contained"
             autoFocus
@@ -61,7 +68,7 @@ const EditeDialog = (props) => {
           </Button>
         </DialogActions>
       </Dialog>
-    </React.Fragment>
+    </>
   );
 };
 
