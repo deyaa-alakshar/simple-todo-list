@@ -1,6 +1,6 @@
 import React from "react";
 import TodoListProvider from "../contexts/TodoListProvider";
-import ToDoList from "./ToDoList";
+import ToDoList from "./toDoList";
 
 const Content = () => {
   return (
