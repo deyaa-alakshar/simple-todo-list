@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
-import { TodoListContext } from "../hooks/TodoListProvider";
+import { TodoListContext } from "../contexts/TodoListProvider";
 
 const Toast = () => {
   const { settings, handleClose } = useContext(TodoListContext);

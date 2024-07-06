@@ -6,7 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
-import { TodoListContext } from "../hooks/TodoListProvider";
+import { TodoListContext } from "../contexts/TodoListProvider";
 
 const EditeDialog = () => {
   const [titel, setTitle] = useState("");

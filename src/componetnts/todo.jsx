@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { FaCheck, FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import Tooltip from "@mui/material/Tooltip";
-import { TodoListContext } from "../hooks/TodoListProvider";
+import { TodoListContext } from "../contexts/TodoListProvider";
 
 const Todo = ({ todo }) => {
   const { handleOpenMarkAsComplete, handleOpeneEdit, handleOpenDelete } =

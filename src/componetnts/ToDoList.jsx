@@ -8,7 +8,7 @@ import Toast from "./Toast";
 import EditeDialog from "./EditeDialog";
 import { CiFilter, CiSearch } from "react-icons/ci";
 import InputAdornment from "@mui/material/InputAdornment";
-import { TodoListContext } from "../hooks/TodoListProvider";
+import { TodoListContext } from "../contexts/TodoListProvider";
 import { useContext } from "react";
 
 const ToDoList = () => {
