@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { FaCheck, FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import Tooltip from "@mui/material/Tooltip";
-import { ToDoListContext } from "./ToDoList";
+import { TodoListContext } from "../hooks/TodoListProvider";
 
-const Todo = ({todo}) => {
-  const {handleOpenMarkAsComplete, handleOpeneEdit, handleOpenDelete } =
-    useContext(ToDoListContext);
+const Todo = ({ todo }) => {
+  const { handleOpenMarkAsComplete, handleOpeneEdit, handleOpenDelete } =
+    useContext(TodoListContext);
+
   return (
     <div className="bg-zinc-900 p-4 flex sm:flex-col md:flex-row gap-2  justify-between my-2 rounded-md">
       <div className="w-3/4">

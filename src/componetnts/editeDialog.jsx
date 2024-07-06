@@ -6,11 +6,11 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
-import { ToDoListContext } from "./ToDoList";
+import { TodoListContext } from "../hooks/TodoListProvider";
 
 const EditeDialog = () => {
   const [titel, setTitle] = useState("");
-  const { settings, handleClose, handleEdit } = useContext(ToDoListContext);
+  const { settings, handleClose, handleEdit } = useContext(TodoListContext);
 
   useEffect(() => {
     setTitle(settings.selected?.todo || "");
@@ -21,54 +21,52 @@ const EditeDialog = () => {
   }
 
   return (
-    <>
-      <Dialog
-        open={settings.openEdite}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-        maxWidth="md"
-        // PaperProps={{style: {backgroundColor: "#121212"}}}
-      >
-        <div className="text-center">
-          <DialogTitle id="alert-dialog-title">Edit Task</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              Change your task title to new one
-            </DialogContentText>
-            <div>
-              <label className="font-semibold text-white text-xs mb-1 block">
-                Title
-              </label>
-              <TextField
-                className="bg-white rounded-md"
-                size="small"
-                fullWidth={true}
-                variant="outlined"
-                placeholder="Please write your todo title"
-                value={titel}
-                onChange={(e) => setTitle(e.target.value)}
-                sx={{ width: 400 }}
-              />
-            </div>
-          </DialogContent>
-        </div>
-        <DialogActions>
-          <Button fullWidth onClick={handleClose} color="inherit">
-            Cancel
-          </Button>
-          <Button
-            fullWidth
-            onClick={() => handleEdit(titel)}
-            color="warning"
-            variant="contained"
-            autoFocus
-          >
-            Edit
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </>
+    <Dialog
+      open={settings.openEdite}
+      onClose={handleClose}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+      maxWidth="md"
+      // PaperProps={{style: {backgroundColor: "#121212"}}}
+    >
+      <div className="text-center">
+        <DialogTitle id="alert-dialog-title">Edit Task</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Change your task title to new one
+          </DialogContentText>
+          <div>
+            <label className="font-semibold text-white text-xs mb-1 block">
+              Title
+            </label>
+            <TextField
+              className="bg-white rounded-md"
+              size="small"
+              fullWidth={true}
+              variant="outlined"
+              placeholder="Please write your todo title"
+              value={titel}
+              onChange={(e) => setTitle(e.target.value)}
+              sx={{ width: 400 }}
+            />
+          </div>
+        </DialogContent>
+      </div>
+      <DialogActions>
+        <Button fullWidth onClick={handleClose} color="inherit">
+          Cancel
+        </Button>
+        <Button
+          fullWidth
+          onClick={() => handleEdit(titel)}
+          color="warning"
+          variant="contained"
+          autoFocus
+        >
+          Edit
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 };
 
