@@ -1,9 +1,9 @@
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
-import UseTodoListContext from "../hooks/useTodoListContext";
+import useTodoListContext from "../hooks/useTodoListContext";
 
 const Toast = () => {
-  const { settings, handleClose } = UseTodoListContext();
+  const { settings, handleClose } = useTodoListContext();
 
   if (!settings.openToast) {
     return null;

@@ -9,7 +9,7 @@ import EditeDialog from "./EditeDialog";
 import { CiFilter, CiSearch } from "react-icons/ci";
 import InputAdornment from "@mui/material/InputAdornment";
 
-import UseTodoListContext from "../hooks/useTodoListContext";
+import useTodoListContext from "../hooks/useTodoListContext";
 
 const ToDoList = () => {
   const {
@@ -19,11 +19,8 @@ const ToDoList = () => {
     handleTitle,
     handleSearch,
     handleAdd,
-    handleOpeneEdit,
-    handleOpenMarkAsComplete,
-    handleOpenDelete,
     handleFilterd,
-  } = UseTodoListContext();
+  } = useTodoListContext();
 
   if (settings.isLoading) {
     return <Loading />;
@@ -112,13 +109,7 @@ const ToDoList = () => {
           <div className="mt-2">
             {toDolist.filterd?.length > 0 ? (
               toDolist.filterd?.map((todo) => (
-                <Todo
-                  key={todo.id}
-                  todo={todo}
-                  handleOpenDelete={handleOpenDelete}
-                  handleOpenMarkAsComplete={handleOpenMarkAsComplete}
-                  handleOpeneEdit={handleOpeneEdit}
-                />
+                <Todo key={todo.id} todo={todo} />
               ))
             ) : (
               <div className="bg-zinc-900 p-4 flex sm:flex-col md:flex-row gap-2  justify-between my-2 rounded-md">

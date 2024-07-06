@@ -4,11 +4,11 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import UseTodoListContext from "../hooks/useTodoListContext";
+import useTodoListContext from "../hooks/useTodoListContext";
 
 const MarkAsCompleteDialog = () => {
   const { settings, handleClose, handleMarkAsComplete } =
-    UseTodoListContext();
+    useTodoListContext();
 
   if (!settings.openMarkAsComplete) {
     return null;

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { TodoListContext } from "../contexts/TodoListProvider";
 
-const UseTodoListContext = () => {
+const useTodoListContext = () => {
   const context = useContext(TodoListContext);
 
   if (!context) {
@@ -12,4 +12,4 @@ const UseTodoListContext = () => {
   return context;
 };
 
-export default UseTodoListContext;
+export default useTodoListContext;

@@ -1,11 +1,11 @@
 import { FaCheck, FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import Tooltip from "@mui/material/Tooltip";
 import { TodoListContext } from "../contexts/TodoListProvider";
-import UseTodoListContext from "../hooks/useTodoListContext";
+import useTodoListContext from "../hooks/useTodoListContext";
 
 const Todo = ({ todo }) => {
   const { handleOpenMarkAsComplete, handleOpeneEdit, handleOpenDelete } =
-    UseTodoListContext(TodoListContext);
+    useTodoListContext(TodoListContext);
 
   return (
     <div className="bg-zinc-900 p-4 flex sm:flex-col md:flex-row gap-2  justify-between my-2 rounded-md">
