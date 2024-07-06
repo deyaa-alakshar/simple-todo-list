@@ -7,6 +7,7 @@ const initialSettings = {
   openMarkAsComplete: false,
   openEdite: false,
   isLoading: false,
+  error: false,
   message: "",
   search: "",
   selected: {},
@@ -17,7 +18,7 @@ const useTodoList = () => {
   const [settings, setSettings] = useState(initialSettings);
   const [todoTitle, setTodoTitle] = useState("");
 
-  const handleAdd = () => {
+  const handleAdd = useCallback(() => {
     setTodoList((prev) => {
       return {
         ...prev,
@@ -44,7 +45,7 @@ const useTodoList = () => {
       return { ...prev, openToast: true, message: "Task added successfully" };
     });
     setTodoTitle("");
-  };
+  }, [setSettings, setTodoList, toDolist, todoTitle]);
 
   const handleOpeneEdit = useCallback(
     (todo) => {
@@ -166,7 +167,7 @@ const useTodoList = () => {
       setSettings((prev) => {
         return { ...prev, search: "" };
       });
-      
+
       if (filter === "all") {
         setTodoList((prev) => {
           return { ...prev, filterd: [...toDolist.orginal] };
@@ -202,6 +203,7 @@ const useTodoList = () => {
         openMarkAsComplete: false,
         openToast: false,
         openEdite: false,
+        error: false,
       };
     });
   }, [setSettings]);
@@ -228,7 +230,14 @@ const useTodoList = () => {
         }
       } catch (err) {
         setSettings((prev) => {
-          return { ...prev, isLoading: false };
+          return {
+            ...prev,
+            isLoading: false,
+            error: true,
+            message:
+              "An error occurred while getting the data please try again",
+            openToast: true,
+          };
         });
       }
     };

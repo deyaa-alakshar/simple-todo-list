@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -6,11 +6,11 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
-import { TodoListContext } from "../contexts/TodoListProvider";
+import UseTodoListContext from "../hooks/useTodoListContext";
 
 const EditeDialog = () => {
   const [titel, setTitle] = useState("");
-  const { settings, handleClose, handleEdit } = useContext(TodoListContext);
+  const { settings, handleClose, handleEdit } = UseTodoListContext();
 
   useEffect(() => {
     setTitle(settings.selected?.todo || "");

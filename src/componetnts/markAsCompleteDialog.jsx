@@ -1,15 +1,14 @@
-import { useContext } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import { TodoListContext } from "../contexts/TodoListProvider";
+import UseTodoListContext from "../hooks/useTodoListContext";
 
 const MarkAsCompleteDialog = () => {
   const { settings, handleClose, handleMarkAsComplete } =
-    useContext(TodoListContext);
+    UseTodoListContext();
 
   if (!settings.openMarkAsComplete) {
     return null;

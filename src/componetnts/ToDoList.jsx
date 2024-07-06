@@ -8,8 +8,8 @@ import Toast from "./Toast";
 import EditeDialog from "./EditeDialog";
 import { CiFilter, CiSearch } from "react-icons/ci";
 import InputAdornment from "@mui/material/InputAdornment";
-import { TodoListContext } from "../contexts/TodoListProvider";
-import { useContext } from "react";
+
+import UseTodoListContext from "../hooks/useTodoListContext";
 
 const ToDoList = () => {
   const {
@@ -23,7 +23,7 @@ const ToDoList = () => {
     handleOpenMarkAsComplete,
     handleOpenDelete,
     handleFilterd,
-  } = useContext(TodoListContext);
+  } = UseTodoListContext();
 
   if (settings.isLoading) {
     return <Loading />;
@@ -110,15 +110,23 @@ const ToDoList = () => {
             </div>
           </div>
           <div className="mt-2">
-            {toDolist.filterd.map((todo) => (
-              <Todo
-                key={todo.id}
-                todo={todo}
-                handleOpenDelete={handleOpenDelete}
-                handleOpenMarkAsComplete={handleOpenMarkAsComplete}
-                handleOpeneEdit={handleOpeneEdit}
-              />
-            ))}
+            {toDolist.filterd?.length > 0 ? (
+              toDolist.filterd?.map((todo) => (
+                <Todo
+                  key={todo.id}
+                  todo={todo}
+                  handleOpenDelete={handleOpenDelete}
+                  handleOpenMarkAsComplete={handleOpenMarkAsComplete}
+                  handleOpeneEdit={handleOpeneEdit}
+                />
+              ))
+            ) : (
+              <div className="bg-zinc-900 p-4 flex sm:flex-col md:flex-row gap-2  justify-between my-2 rounded-md">
+                <h2 className="text-orange-400 text-xl font-bold">
+                  There are no tasks here
+                </h2>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
-import { TodoListContext } from "../contexts/TodoListProvider";
+import UseTodoListContext from "../hooks/useTodoListContext";
 
 const Toast = () => {
-  const { settings, handleClose } = useContext(TodoListContext);
+  const { settings, handleClose } = UseTodoListContext();
 
   if (!settings.openToast) {
-    return;
+    return null;
   }
 
   return (
@@ -16,7 +15,9 @@ const Toast = () => {
       autoHideDuration={2000}
       onClose={handleClose}
     >
-      <Alert severity="success">{settings.message}</Alert>
+      <Alert severity={settings.error ? "error" : "success"}>
+        {settings.message}
+      </Alert>
     </Snackbar>
   );
 };
