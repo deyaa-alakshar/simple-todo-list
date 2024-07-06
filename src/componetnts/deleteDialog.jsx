@@ -4,10 +4,10 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import UseTodoListContext from "../hooks/useTodoListContext";
+import useTodoListContext from "../hooks/useTodoListContext";
 
 const DeleteDialog = () => {
-  const { settings, handleClose, handleDelete } = UseTodoListContext();
+  const { settings, handleClose, handleDelete } = useTodoListContext();
 
   if (!settings.openDelete) {
     return null;

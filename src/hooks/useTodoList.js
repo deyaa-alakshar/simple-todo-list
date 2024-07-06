@@ -125,6 +125,9 @@ const useTodoList = () => {
         filterd: toDolist.filterd.filter(
           (todo) => todo.id !== settings.selected.id
         ),
+        orginal: toDolist.orginal.filter(
+          (todo) => todo.id !== settings.selected.id
+        ),
       };
     });
 

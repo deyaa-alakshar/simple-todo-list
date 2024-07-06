@@ -6,11 +6,11 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
-import UseTodoListContext from "../hooks/useTodoListContext";
+import useTodoListContext from "../hooks/useTodoListContext";
 
 const EditeDialog = () => {
   const [titel, setTitle] = useState("");
-  const { settings, handleClose, handleEdit } = UseTodoListContext();
+  const { settings, handleClose, handleEdit } = useTodoListContext();
 
   useEffect(() => {
     setTitle(settings.selected?.todo || "");

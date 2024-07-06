@@ -1,11 +1,11 @@
-import Loading from "./loading";
-import Todo from "./todo";
+import Loading from "./Loading";
+import Todo from "./Todo";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import MarkAsCompleteDialog from "./markAsCompleteDialog";
-import DeleteDialog from "./deleteDialog";
-import Toast from "./toast";
-import EditeDialog from "./editeDialog";
+import MarkAsCompleteDialog from "./MarkAsCompleteDialog";
+import DeleteDialog from "./DeleteDialog";
+import Toast from "./Toast";
+import EditeDialog from "./EditeDialog";
 import { CiFilter, CiSearch } from "react-icons/ci";
 import InputAdornment from "@mui/material/InputAdornment";
 
