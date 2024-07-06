@@ -15,3 +15,6 @@ first run the command npm i or yarn to install all the packeges
 next run npm start or yarn start to start the project
 
 you can install clone of the project by running git clone https://github.com/deyaa-alakshar/simple-todo-list.git
+
+Note:
+you can use react query library it's a very powerful library, it provide many features that can enhance the entire application such as simplified data fetching, automatic caching, improve performance, error handling and retries, simplified state management, Seamless React Integration:
