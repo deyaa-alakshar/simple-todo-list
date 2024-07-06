@@ -1,6 +1,6 @@
 import { FaCheck, FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import Tooltip from "@mui/material/Tooltip";
-import { TodoListContext } from "../contexts/TodoListProvider";
+import { TodoListContext } from "../contexts/todoListProvider";
 import UseTodoListContext from "../hooks/useTodoListContext";
 
 const Todo = ({ todo }) => {
