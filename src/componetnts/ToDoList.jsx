@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import MarkAsCompleteDialog from "./markAsCompleteDialog";
 import DeleteDialog from "./deleteDialog";
-import Toast from "./Toast";
+import Toast from "./toast";
 import EditeDialog from "./editeDialog";
 import { CiFilter, CiSearch } from "react-icons/ci";
 import InputAdornment from "@mui/material/InputAdornment";

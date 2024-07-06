@@ -17,7 +17,7 @@ const EditeDialog = () => {
   }, [settings.selected]);
 
   if (!settings.openEdite) {
-    return;
+    return null;
   }
 
   return (
